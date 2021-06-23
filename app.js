@@ -1,12 +1,12 @@
-// 変数iを宣言
-var i;
-// 変数numを宣言し、初期値を0に設定
-var num = 0;
+// メイン部分
+var alertString;
+alertString = addString("WebCamp");
 
-// 変数iの初期値を1に設定し、変数iが11未満のときは変数iに1を足す
-for(i = 1; i < 11; i++){
-// 変数numにnum+iを代入
-  num = num +i;
+// 作成した関数を呼び出す
+alert(alertString);
+
+// 作成した関数
+function addString(strA){
+  var addStr = "Hello " + strA;
+  return addStr;
 }
-
-alert('1から１０まで足算した結果は' + num + 'です');
