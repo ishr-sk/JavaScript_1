@@ -1,5 +1,9 @@
 // じゃんけんの手を入力してもらうプロント欄を生成
 var user_hand = prompt('じゃんけんの手をグー、チョキ、パーから選んでください。');
+while ((user_hand != "グー") && (user_hand != "チョキ") && (user_hand != "パー") && (user_hand != null)){
+  alert('グー・チョキ・パーのいずれかを入力してください');
+  user_hand = prompt('じゃんけんの手をグー、チョキ、パーから選んでください。')
+}
 
 // じゃんけんの手をランダムに作成する関数を呼び出す
 var js_hand = getJShand();
@@ -7,9 +11,12 @@ var js_hand = getJShand();
 // ユーザーの手とJavaScriptのじゃんけんの手をくらべる関数を呼び出し、結果をjudgeに入れる
 var judge = winLose(user_hand, js_hand)
 
-// 結果を表示する
-alert('あなたの選んだ手は' + user_hand + 'です。\nJavaScriptの選んだ手は' + js_hand + 'です。\n結果は' +judge +  'です。');
-
+// 結果を表示する。ユーザーの手がnull以外の場合、結果を表示。キャンセルボタンを押された場合は、またチャレンジしてね表示。nullはキャンセルボタン。
+if (user_hand != null){
+  alert('あなたの選んだ手は' + user_hand + 'です。\nJavaScriptの選んだ手は' + js_hand + 'です。\n結果は' +judge +  'です。');
+} else {
+  alert("またチャレンジしてね")
+}
 //ランダムでじゃんけんの手を作成する関数
 function getJShand(){
   var js_hand_num = Math.floor( Math.random() * 3 );
